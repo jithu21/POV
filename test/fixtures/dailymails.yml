@@ -1,0 +1,61 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  slotid: 
+  siteid: 
+  sitename: 
+  pricelevel: 
+  requestid: 
+  adunit: 
+  dealid: MyString
+  : 
+  domain: 
+  country: 
+  state: 
+  dma: 
+  connectionspeed: 
+  os: 
+  browser: 
+  devicetype: 
+  language: 
+  dspname: MyString
+  : 
+  brandid: 
+  brandname: 
+  campaignid: 
+  usermatchstatus: 
+  timestamp: 2015-11-25 00:22:14
+  winrate: 
+  bidrate: 
+  clearprice: 
+
+two:
+  type: 
+  slotid: 
+  siteid: 
+  sitename: 
+  pricelevel: 
+  requestid: 
+  adunit: 
+  dealid: MyString
+  : 
+  domain: 
+  country: 
+  state: 
+  dma: 
+  connectionspeed: 
+  os: 
+  browser: 
+  devicetype: 
+  language: 
+  dspname: MyString
+  : 
+  brandid: 
+  brandname: 
+  campaignid: 
+  usermatchstatus: 
+  timestamp: 2015-11-25 00:22:14
+  winrate: 
+  bidrate: 
+  clearprice: 

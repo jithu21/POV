@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Connector Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Projectname</th>
+      <th>Filetype</th>
+      <th>Connectorname</th>
+      <th>Datasource</th>
+      <th>Credentials</th>
+      <th>Mapping</th>
+      <th>Cronexpression</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @connector_details.each do |connector_detail| %>
+      <tr>
+        <td><%= connector_detail.projectname %></td>
+        <td><%= connector_detail.filetype %></td>
+        <td><%= connector_detail.connectorname %></td>
+        <td><%= connector_detail.datasource %></td>
+        <td><%= connector_detail.credentials %></td>
+        <td><%= connector_detail.mapping %></td>
+        <td><%= connector_detail.cronexpression %></td>
+        <td><%= link_to 'Show', connector_detail %></td>
+        <td><%= link_to 'Edit', edit_connector_detail_path(connector_detail) %></td>
+        <td><%= link_to 'Destroy', connector_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Connector detail', new_connector_detail_path %>

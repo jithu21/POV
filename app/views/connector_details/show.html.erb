@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Projectname:</strong>
+  <%= @connector_detail.projectname %>
+</p>
+
+<p>
+  <strong>Filetype:</strong>
+  <%= @connector_detail.filetype %>
+</p>
+
+<p>
+  <strong>Connectorname:</strong>
+  <%= @connector_detail.connectorname %>
+</p>
+
+<p>
+  <strong>Datasource:</strong>
+  <%= @connector_detail.datasource %>
+</p>
+
+<p>
+  <strong>Credentials:</strong>
+  <%= @connector_detail.credentials %>
+</p>
+
+<p>
+  <strong>Mapping:</strong>
+  <%= @connector_detail.mapping %>
+</p>
+
+<p>
+  <strong>Cronexpression:</strong>
+  <%= @connector_detail.cronexpression %>
+</p>
+
+<%= link_to 'Edit', edit_connector_detail_path(@connector_detail) %> |
+<%= link_to 'Back', connector_details_path %>

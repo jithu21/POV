@@ -1,0 +1,2 @@
+module ConnectorDetailsHelper
+end
