@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+
+    post 'users/sign_in' => "devise/sessions#create"
+    delete '/users/sign_out' => "devise/sessions#destroy"
+    devise_for :users
   resources :dailymails
   resources :connector_details
+
+  get 'dailymailsallrecords' => 'dailymails#displayallrecords'
+
+  get 'allbids' => 'dailymails#displayallBids'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

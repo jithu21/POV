@@ -6,14 +6,29 @@ class DailymailsController < ApplicationController
   def index
 
     @dailymails = Dailymail.collection.aggregate([{ "$match" => { "clearprice" => { "$gt" => 0}}}, { "$group" => { "_id" => "$brandname", "revenue" => { "$sum" => "$clearprice"}, "brandname" => {"$first" => "$brandname"} }},
-     { "$project"  => { "brandname" => 1, "revenue" => 1, "_id" => 0}}, { "$sort" => { "revenue"  => -1}}, { "$limit" => 10}])
-     render :json => {:result => @dailymails :status => "200" }
+     { "$project"  => { "brandname" => 1, "revenue" => 1, "_id" => 0}}, { "$sort" => { "revenue"  => -1}}, { "$limit" => 15}])
+     render :json => {:result => @dailymails.to_json , status => "200" }
   end
 
   # GET /dailymails/1
   # GET /dailymails/1.json
   def show
   end
+
+
+ def displayallBids
+   @allbids = Dailymail.collection.aggregate([{ "$match" => { "clearprice" => { "$gt" => 0}, "timeStamp" => { "$gt" => "2015-11-16 16:48:17" , "$lt" => "2015-11-16 23:48:17" }}},
+   { "$group" => { "_id" => { "timeStamp" => "$timeStamp","brandname" => "$brandname" } ,"NoOfBids" => { "$sum" => 1}, "Clearprice" => { "$sum" => "$clearprice"}}},
+   {"$project" => { "NoOfBids" => 1,"Clearprice" => 1,"_id" => 0}},{"$sort" => {"Clearprice" => -1}}],{ :allowDiskUse => "true"})
+   render :json => @allbids.to_json
+ end
+
+  def displayallrecords
+     @dailymailall=Dailymail.collection.aggregate([{"$match" => {"timeStamp" => {"$gt" =>"2015-11-16 16:48:17", "$lt" =>"2015-11-16 20:48:17"}, "clearprice" =>{"$gt" => 0}}},
+     {"$project" => {"_id" => 0 , "type" => 1 , "slotid" => 1, "siteid" => 1, "pricelevel" => 1,"requestid" => 1,"adunit" => 1,"dealid" => 1, "domain" => 1, "country" => 1, "state" => 1,"dma" => 1, "connectionspeed" => 1,"os" => 1,"browser" => 1,"device type" => 1, "language" => 1,"dspname" => 1,"brandid" => 1,"brandname" => 1, "campaignid" => 1,"usermatchstatatus" => 1, "timeStamp" => 1, "winrate" => 1, "bidrate" => 1,"clearprice" => 1}}])
+      render :json => @dailymailall.to_json
+  end
+
 
   # GET /dailymails/new
   def new
